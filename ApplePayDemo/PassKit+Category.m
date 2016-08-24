@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YueWen. All rights reserved.
 //
 
-#import "PKShippingMethod+Category.h"
+#import "PassKit+Category.h"
 
 @implementation PKShippingMethod (Category)
 
@@ -26,6 +26,15 @@
     NSDecimalNumber * amountNumber = [NSDecimalNumber decimalNumberWithString:amount];
     
     return [self shippingMethodWithLabel:label amount:amountNumber identifier:identifier detail:detail];
+}
+
+@end
+
+@implementation CNPostalAddress (Category)
+
+-(NSString *)fullAddress
+{
+    return [NSString stringWithFormat:@"%@%@%@%@",self.country,self.state,self.city,self.street];
 }
 
 @end
